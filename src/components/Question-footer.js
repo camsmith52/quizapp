@@ -69,6 +69,7 @@ const QuestionFooter = () => {
       {submitButton}
       {startAgainButton}
       {scoreDisplay}
+      <p>Some random text</p>
     </div>
   );
 };
