@@ -1,0 +1,10 @@
+.active {
+    background: green;
+    
+}
+
+.inactive:focus {
+    background: red;
+    
+}
+

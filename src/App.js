@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, createContext } from "react";
+
+import QuestionFooter from "./components/Question-footer";
+import QuestionHeader from "./components/Question-header";
+import QuestionOptions from "./components/Question-options";
+
+export const UserContext = createContext();
 
 function App() {
+  const [count, setCount] = useState(0);
+  const [scoreLimit, setScoreLimit] = useState(null);
+  const [score, setScore] = useState(0);
+  const [active, setActive] = useState(null);
+  const [disabled, setDisabled] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const globalState = {
+    count: count,
+    scoreLimit: scoreLimit,
+    score: score,
+    active: active,
+    disabled: disabled,
+    message: message,
+    setMessage: setMessage,
+    setScore: setScore,
+    setScoreLimit: setScoreLimit,
+    setActive: setActive,
+    setDisabled: setDisabled,
+    setCount: setCount,
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <UserContext.Provider value={globalState}>
+        <QuestionHeader />
+        <QuestionOptions />
+        <QuestionFooter />
+      </UserContext.Provider>
     </div>
   );
 }
