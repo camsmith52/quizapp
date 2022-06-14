@@ -15,10 +15,10 @@ const QuestionFooter = () => {
     globalState.setMessage("");
   };
 
-  // const onPrevClick = () => {
-  //   globalState.setCount((prev) => prev - 1);
-  //   globalState.setScoreLimit(true);
-  // };
+  const onPrevClick = () => {
+    globalState.setCount((prev) => prev - 1);
+    globalState.setScoreLimit(true);
+  };
 
   //Start again button helper func
   const startAgain = () => {
@@ -60,11 +60,11 @@ const QuestionFooter = () => {
   return (
     <div>
       {questionTracker}
-      {/* {globalState.count > 0 && (
+      {globalState.count > 0 && (
         <button disabled={cancelPrev} onClick={onPrevClick}>
           Prev
         </button>
-      )} */}
+      )}
       {nextButton}
       {submitButton}
       {startAgainButton}
